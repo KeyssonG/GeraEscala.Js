@@ -1,9 +1,9 @@
 // Importa o React, necessário para renderizar componentes React
-import React from "react";
+import React from 'react';
 // Importa o ReactDOM, responsável por renderizar os componentes no DOM
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 // Importa o componente principal App, que será renderizado na aplicação 
-import App from "./App";
+import App from './App';
 
 
 // Renderiza o componente principal App, na página HTML
