@@ -22,7 +22,7 @@ function App() {
             <div className="App">
                 {/* Cabeçalho  comum para todas as páginas, se necessário*/}
                 <header>
-                    <h1>Sistema de Gerenciamento de Escalas de Trabalho</h1>
+                    <h1>GeraEscala</h1>
                 </header>
 
                 {/*Define as rotas da aplicação*/}
