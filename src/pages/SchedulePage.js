@@ -10,3 +10,5 @@ function SchedulePage() {
         </div>
     )
 }
+
+export default SchedulePage;
