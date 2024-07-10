@@ -11,7 +11,7 @@ function Register() {
     };
 
     // função para lidar com alteração do campo de senha 
-    const handlePassword = (e) => {
+    const handleChangePassword = (e) => {
         setPassword(e.target.value);
     };
 
@@ -53,7 +53,7 @@ function Register() {
                     type="password"
                     id="password"
                     value={password}
-                    onChange={handlePassword}
+                    onChange={handleChangePassword}
                 />
             </div>
 

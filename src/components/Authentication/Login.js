@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 
 function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [formState, setFormState] = useState({
+        email: "",
+        password: ""
+    });
 
-    // função para lidar com alteração  do campo de e-mail
-    const handleChangeEmail = (e) => {
-        setEmail(e.target.value);
+    const handleChangeInput = (event) => {
+        const { name, value } = event.target;
+        setFormState(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
-    // função para lidar com alteração do campo de senha 
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    };
-
-    // função para lidar com o envio do formulário
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // lógica de autenticação 
-        console.log('E-mail', email);
-        console.log('Password', password);
-    };
+        console.log('E-mail:', formState.email);
+        console.log('Password:', formState.password);
+    }
 
     const isFormValid = email !== '' && password !== '';
 
@@ -32,8 +30,9 @@ function Login() {
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     value={email}
-                    onChange={handleChangeEmail} 
+                    onChange={handleChangeEmail}
                     required
                 />
             </div>
@@ -43,8 +42,9 @@ function Login() {
                 <input
                     type="password"
                     id="password"
+                    name="password"
                     value={password}
-                    onChange={handlePassword}
+                    onChange={handleChangePassword}
                 />
             </div>
             <button type="submit" disabled={isFormValid}>Login</button> //botão desativado se os campos não forem válidos
