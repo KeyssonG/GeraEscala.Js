@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../styles/Authentication.css'
 
 function Register() {
     const [formState, setFormState] = useState({

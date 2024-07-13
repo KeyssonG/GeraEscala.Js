@@ -2,6 +2,8 @@
 import React from 'react';
 // Importa o ReactDOM, responsável por renderizar os componentes no DOM
 import ReactDOM from 'react-dom';
+
+import '../src/styles/main.css'
 // Importa o componente principal App, que será renderizado na aplicação 
 import App from './App';
 

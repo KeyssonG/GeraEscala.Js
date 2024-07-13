@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import '../../styles/Authentication.css'
+
 
 function Login() {
     const [formState, setFormState] = useState({
@@ -21,7 +23,7 @@ function Login() {
         console.log('Password:', formState.password);
     }
 
-    const isFormValid = email !== '' && password !== '';
+    const isFormValid = formState.email !== '' && formState.password !== '';
 
     return (
         <form onSubmit={handleSubmit}>
@@ -31,8 +33,8 @@ function Login() {
                     type="email"
                     id="email"
                     name="email"
-                    value={email}
-                    onChange={handleChangeEmail}
+                    value={formState.email}
+                    onChange={handleChangeInput}
                     required
                 />
             </div>
@@ -43,11 +45,11 @@ function Login() {
                     type="password"
                     id="password"
                     name="password"
-                    value={password}
-                    onChange={handleChangePassword}
+                    value={formState.password}
+                    onChange={handleChangeInput}
                 />
             </div>
-            <button type="submit" disabled={isFormValid}>Login</button> //botão desativado se os campos não forem válidos
+            <button type="submit" disabled={isFormValid}>Login</button> 
         </form>
     );
 };
