@@ -5,7 +5,7 @@ import Register from "../components/Authentication/Register";
 
 function RegisterPage() {
     return (
-        <div>
+        <div style={{ textAlign: 'center' }}>
             <h2>Página de registro</h2>
             <Register />
 
