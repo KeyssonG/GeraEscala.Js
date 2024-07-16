@@ -6,7 +6,7 @@ import Register from "../components/Authentication/Register";
 function RegisterPage() {
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2>Página de registro</h2>
+            <h2>Administre sua equipe aqui!</h2>
             <Register />
 
         </div>

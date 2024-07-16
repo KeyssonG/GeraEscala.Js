@@ -5,7 +5,7 @@ import Login from "../components/Authentication/Login";
 function LoginPage() {
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2>Página de Login</h2>
+            <h2>Administre sua equipe aqui!</h2>
             <Login />
         </div>
     );

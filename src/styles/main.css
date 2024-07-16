@@ -1,41 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Colors */
 :root {
-    --font-family: Arial, sans-serif;
+    --primary-color: #007bff;
+    --secondary-color: #333;
     --background-color: #f4f4f4;
+    --border-color: #ccc;
     --text-color: #333;
-    --header-background-color: #007bff;
-    --header-text-color: #fff;
-    --footer-background-color: #007bff;
-    --footer-text-color: #fff;
-    --padding: 1em 0;
+    --input-background-color: #f9f9f9;
+    --input-border-color: #ccc;
+    --button-background-color: #007bff; /* Valor da variável --primary-color */
+    --button-disabled-background-color: #ccc;
+    --color-form: #34495e;
+    --color-input-bottom: #e74c3c;
+}
+/* Sizes and Spacing */
+:root {
+    --input-padding: 0.5em;
+    --input-margin: 0.4em 0;
+    --form-max-width: 400px;
+    --form-padding: 1em;
+    --form-border-radius: 1em;
+    --button-padding: 0.5em;
+    --header-padding: 1em 0;
+    --footer-padding: 1em 0;
     --header-font-size: 2.5em;
+    --form-label-margin-bottom: 0.5em;
+    --header-margin-bottom: 2em;
+    --button-border-radius: 0.5em; /* Nova variável para borda arredondada dos botões */
 }
 
+/* General Styles */
 body {
-    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif; 
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.container {
+    display: flex;
+    width: 800px;
+    height: 400px;
+    background-color: var(--color-form);
+    border-radius: var(--form-border-radius);
+    overflow: hidden;
+}
+
+/* Login and Register Form Styles */
+.login-form, .register-form {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os elementos do formulário */
+}
+
+.login-form h2, .register-form h2 {
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza o título */
+}
+
+.login-form input, .register-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: var(--form-border-radius);
+    font-size: 16px;
+    width: 100%; /* Garante que os inputs ocupem 100% da largura disponível */
+}
+
+.login-form button, .register-form button {
+    padding: 10px;
+    border: none;
+    border-radius: var(--button-border-radius); /* Utiliza a variável para borda arredondada */
+    background-color: var(--color-input-bottom);
+    color: #ecf0f1;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Garante que os botões ocupem 100% da largura disponível */
+}
+
+.login-form button:hover, .register-form button:hover {
+    background-color: #c0392b;
+}
+
+.login-form .signup, .register-form .login-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Welcome Message Styles */
+.welcome-message {
+    flex: 1;
+    background-color: #1abc9c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.welcome-message h1 {
+    margin-bottom: 20px;
+}
+
+.welcome-message p {
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    max-width: var(--form-max-width);
+    margin: 0 auto;
+    padding: var(--form-padding);
+    border: 1px solid var(--border-color);
+    border-radius: var(--form-border-radius);
+    background-color: var(--input-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos do formulário */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: var(--input-padding);
+    margin: var(--input-margin);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--form-border-radius);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: var(--button-padding);
+    color: #fff;
+    background-color: var(--button-background-color);
+    border: none;
+    border-radius: var(--form-border-radius);
+    cursor: pointer;
+}
+
+button[type="submit"]:disabled {
+    background-color: var(--button-disabled-background-color);
+    cursor: not-allowed;
+}
+
+label {
+    margin-bottom: var(--form-label-margin-bottom);
     color: var(--text-color);
+    display: block;
+    text-align: center; /* Centraliza os labels */
 }
 
 header {
-    background-color: var(--header-background-color);
-    color: var(--header-text-color);
-    padding: var(--padding);
     text-align: center;
+    margin-bottom: var(--header-margin-bottom);
 }
 
 header h1 {
-    margin: 0;
     font-size: var(--header-font-size);
-}
-
-footer {
-    text-align: center;
-    padding: var(--padding);
-    background-color: var(--footer-background-color);
-    color: var(--footer-text-color);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    color: var(--primary-color);
 }
