@@ -41,7 +41,7 @@ function App() {
                     {/*Adiciona mais rotas conforme necessário para outras funcionalidades */}
                 </Routes>
                 {/*Rodapé comum para todas as páginas*/}
-                <footer>
+                <footer style={{ textAlign: 'center' }}>
                     <p>© 2024 Sistema de Gerenciamento de Escalas de Trabalho</p>
                 </footer>
             </div>
