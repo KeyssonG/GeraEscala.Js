@@ -1,23 +1,20 @@
-meu-projeto-backend/
-│
-├── config/
-│   ├── database.js
-│   └── env.js
-│
-├── controllers/
-│   ├── authController.js
-│   └── userController.js
-│
-├── models/
-│   └── User.js
-│
-├── routes/
-│   ├── authRoutes.js
-│   └── index.js
-│
-├── utils/
-│   ├── auth.js
-│   └── validation.js
-│
-├── server.js
-└── package.json
+work-schedule-backend/
+├── src/
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── employeeController.js
+│   │   ├── scheduleController.js
+│   ├── models/
+│   │   ├── userModel.js
+│   │   ├── employeeModel.js
+│   │   ├── scheduleModel.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── employeeRoutes.js
+│   │   ├── scheduleRoutes.js
+│   ├── plugins/
+│   │   ├── db.js
+│   ├── index.js
+├── package.json
+├── .env
+└── README.md
