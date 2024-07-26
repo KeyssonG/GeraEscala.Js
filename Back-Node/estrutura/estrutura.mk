@@ -12,9 +12,11 @@ work-schedule-backend/
 │   │   ├── authRoutes.js
 │   │   ├── employeeRoutes.js
 │   │   ├── scheduleRoutes.js
-│   ├── plugins/
-│   │   ├── db.js
 │   ├── index.js
+│   ├── server.js
+│   ├── config/
+│   │   ├── database.js
+│   │   ├── dotenv
+├── .gitignore
 ├── package.json
-├── .env
-└── README.md
+├── README.md

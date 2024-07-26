@@ -1,11 +1,15 @@
 require('dotenv').config();
 const fastify = require('fastify')({ logger: true });
-const dbConnector = require('./plugins/db');
-// Sessão onde será configurado as rotas
+const dbConnector = require('./config/database');
+const authRoutes = require('./routes/authRoutes');
+const employeeRoutes = require('./routes/employeeRoutes');
+const scheduleRoutes = require('./routes//scheduleRoutes');
 
 fastify.register(dbConnector);
 
-// Sessão onde será feito o registro de rotas
+fastify.register(authRoutes);
+fastify.register(employeeRoutes);
+fastify.register(scheduleRoutes);
 
 const start = async () => {
     try {
