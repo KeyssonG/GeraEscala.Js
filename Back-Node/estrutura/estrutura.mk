@@ -1,22 +1,27 @@
-work-schedule-backend/
+work-schedule-system/
 ├── src/
 │   ├── controllers/
 │   │   ├── authController.js
+│   │   ├── userController.js
 │   │   ├── employeeController.js
 │   │   ├── scheduleController.js
 │   ├── models/
 │   │   ├── userModel.js
 │   │   ├── employeeModel.js
 │   │   ├── scheduleModel.js
+│   ├── plugins/
+│   │   ├── db.js
+│   │   ├── jwt.js
 │   ├── routes/
 │   │   ├── authRoutes.js
+│   │   ├── userRoutes.js
 │   │   ├── employeeRoutes.js
 │   │   ├── scheduleRoutes.js
-│   ├── index.js
+│   ├── utils/
+│   │   ├── hash.js
+│   ├── app.js
 │   ├── server.js
-│   ├── config/
-│   │   ├── database.js
-│   │   ├── dotenv
-├── .gitignore
+├── .env
 ├── package.json
-├── README.md
+├── .gitignore
+└── README.md
