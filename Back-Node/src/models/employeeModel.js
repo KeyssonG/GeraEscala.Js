@@ -12,4 +12,4 @@ async function createTables(fastify) {
     await fastify.pg.query(createEmployeeTable);
 }
 
-module.exports = (createTables);
+module.exports = { createTables };

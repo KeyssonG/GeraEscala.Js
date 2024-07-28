@@ -1,3 +1,4 @@
+// src/routes/employeeRoutes.js
 async function routes(fastify, options) {
     fastify.get('/employees', { preValidation: [fastify.authenticate] }, async (request, reply) => {
         const { rows } = await fastify.pg.query('SELECT * FROM employees');

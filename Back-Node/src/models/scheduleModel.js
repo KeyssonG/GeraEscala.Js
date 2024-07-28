@@ -1,3 +1,4 @@
+
 const createScheduleTable = `
 CREATE TABLE IF NOT EXISTS schedules (
     id SERIAL PRIMARY KEY,
@@ -7,6 +8,7 @@ CREATE TABLE IF NOT EXISTS schedules (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 `;
+
 async function createTables(fastify) {
     await fastify.pg.query(createScheduleTable);
 }

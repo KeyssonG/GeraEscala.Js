@@ -1,3 +1,6 @@
+
+const scheduleController = require('../controllers/scheduleController');
+
 async function routes(fastify, options) {
     fastify.get('/schedules', { preValidation: [fastify.authenticate] }, async (request, reply) => {
         const { rows } = await fastify.pg.query('SELECT * FROM schedules');

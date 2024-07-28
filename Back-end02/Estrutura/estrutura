@@ -1,0 +1,16 @@
+work-schedule-system/
+├── src/
+│   ├── controllers/
+│   │   ├── authController.js
+│   ├── models/
+│   │   ├── userModel.js
+│   ├── plugins/
+│   │   ├── db.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   ├── app.js
+│   ├── server.js
+├── .env
+├── package.json
+├── .gitignore
+└── README.md

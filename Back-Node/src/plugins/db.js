@@ -1,5 +1,6 @@
-const { Pool, Query } = require('pg');
+// src/plugins/db.js
 const fastifyPlugin = require('fastify-plugin');
+const { Pool } = require('pg');
 
 async function dbConnector(fastify, options) {
     const pool = new Pool({
