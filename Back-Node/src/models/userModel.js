@@ -1,14 +1,20 @@
-const createUserTable = `
-CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY, 
-    email VARCHAR(255) UNIQUE NOT NULL, 
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-`;
+// src/models/userModel.js
+const pool = require('../plugins/db');
 
-async function createTables(fastify) {
-    await fastify.pg.query(createUserTable);
-}
+const createUser = async (email, password) => {
+    try {
+        const result = await pool.query(
+            'INSERT INTO users(email, password) VALUES($1, $2) RETURNING *',
+            [email, password]
+        );
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao registrar o usuário:', error.message);
+        console.error('Detalhes do erro:', error);
+        throw new Error('Erro ao registrar o usuário.');
+    }
+};
 
-module.exports = { createTables };
+module.exports = {
+    createUser,
+};

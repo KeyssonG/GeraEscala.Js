@@ -1,33 +1,23 @@
-// authController.js
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const User = require('../models/userModel');
+// src/controllers/authController.js
+const { createUser } = require('../models/userModel');
 
-const login = async (request, reply) => {
-    const { email, password } = request.body;
-    const user = await User.findOne({ where: { email } });
+const registerUser = async (request, reply) => {
+    const { email, password, confirmPassword } = request.body;
 
-    if (!user || !bcrypt.compareSync(password, user.password)) {
-        return reply.status(401).send({ error: 'Credenciais inválidas' });
+    // Verifique se as senhas coincidem
+    if (password !== confirmPassword) {
+        return reply.code(400).send({ error: 'As senhas não coincidem.' });
     }
 
-    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    return reply.send({ token });
-};
-
-const register = async (request, reply) => {
-    const { email, password } = request.body;
-    const hashedPassword = bcrypt.hashSync(password, 10);
-
     try {
-        await User.create({ email, password: hashedPassword });
-        return reply.send({ message: 'Usuário registrado com sucesso!' });
-    } catch (err) {
-        return reply.status(400).send(err);
+        const newUser = await createUser(email, password);
+        reply.code(201).send(newUser);
+    } catch (error) {
+        console.error('Erro ao registrar usuário:', error.message);
+        reply.code(500).send({ error: error.message });
     }
 };
 
 module.exports = {
-    login,
-    register,
+    registerUser,
 };
