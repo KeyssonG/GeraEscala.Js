@@ -1,5 +1,5 @@
 const Fastify = require('fastify');
-const fastify = Fastify({ logger: true });
+const fastify = Fastify({ logger: false });
 const { Pool } = require('pg');
 const cors = require('@fastify/cors'); // Atualizado para @fastify/cors
 

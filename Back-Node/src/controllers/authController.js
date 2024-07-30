@@ -1,4 +1,5 @@
 // src/controllers/authController.js
+const bcrypt = require('bcrypt')
 const { createUser } = require('../models/userModel');
 
 const registerUser = async (request, reply) => {
@@ -10,7 +11,10 @@ const registerUser = async (request, reply) => {
     }
 
     try {
-        const newUser = await createUser(email, password);
+
+        const hashedPassword = await bcrypt.hash(password, 8);
+
+        const newUser = await createUser(email, hashedPassword);
         reply.code(201).send(newUser);
     } catch (error) {
         console.error('Erro ao registrar usuário:', error.message);

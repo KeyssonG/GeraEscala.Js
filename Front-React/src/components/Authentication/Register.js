@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import '../../styles/Authentication.css';
 
 function Register() {
@@ -8,6 +9,9 @@ function Register() {
         confirmPassword: ""
     });
 
+    const [message, setMessage] = useState("");
+    const [isSucess, setIsSucess] = useState(false);
+
     const handleChangeInput = (event) => {
         const { name, value } = event.target;
         setFormState(prev => ({
@@ -16,14 +20,23 @@ function Register() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (formState.password !== formState.confirmPassword) {
-            alert('As senhas não coincidem.');
+            setMessage('As senhas não coincidem.');
+            setIsSucess(false);
             return;
         }
-        console.log('E-mail:', formState.email);
-        console.log('Password:', formState.password);
+
+        try {
+            const  response = await axios.post('http://localhost:3001/register', formState);
+            setMessage(response.data.message);
+            setMessage("usuário cadastrado com sucesso!")
+            setIsSucess(true);
+        } catch (error){
+            setMessage(error.response.data.message || "Erro ao registrar o usuário.");
+            setIsSucess(false);
+        }
     };
 
     const isFormValid = formState.email !== '' && formState.password !== '' && formState.confirmPassword !== '';
@@ -70,6 +83,16 @@ function Register() {
                     </div>
                     <button type="submit" disabled={!isFormValid}>Registro</button>
                 </form>
+
+                {message && (
+                    <p className={isSucess ? "sucess-message": "error-message"}>
+                        {message}
+                    </p>
+                )
+
+                }
+
+
                 <div className="login-link">
                     <p>Já tem uma conta? <a href="#">Login</a></p>
                 </div>

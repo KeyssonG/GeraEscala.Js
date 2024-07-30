@@ -7,7 +7,8 @@
     --text-color: #333;
     --input-background-color: #f9f9f9;
     --input-border-color: #ccc;
-    --button-background-color: #007bff; /* Valor da variável --primary-color */
+    --button-background-color: #007bff;
+    /* Valor da variável --primary-color */
     --button-disabled-background-color: #ccc;
 }
 
@@ -41,7 +42,7 @@ input[type="password"] {
     padding: var(--input-padding);
     margin: var(--input-margin);
     border: 1px solid var(--input-border-color);
-    border-radius: var(--form-border-radius); 
+    border-radius: var(--form-border-radius);
 }
 
 button[type="submit"] {
@@ -73,4 +74,14 @@ header {
 header h1 {
     font-size: var(--header-font-size);
     color: var(--primary-color);
+}
+
+.sucess-message {
+    color: green;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
 }
